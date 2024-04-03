@@ -1,0 +1,22 @@
+<launch>
+<!-- Enable verbose mode to print logs -->
+<arg name="verbose" default="true"/>
+<!-- Specify the pointpillar model file name in ../model folder (*.pth) -->
+<arg name="model_file_name" default="$(find pointpillar_ros)/model/pointpillar/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth"/>
+<!-- Specify the model configuration file name in ../model folder (*.py) -->
+<arg name="config_file_name" default="$(find pointpillar_ros)/model/pointpillar/pointpillars_hv_secfpn_8xb6-160e_kitti-3d-3class.py"/>
+<!-- Filtering out detections result if lower than the score [0, 1] -->
+<arg name="detection_score_threshold" default="0.3"/>
+<!-- Input point cloud topic -->
+<arg name="sub_point_cloud_topic" default="/pointcloud_navigation"/>
+<!-- Output topic for the 3D detection results -->
+<arg name="pub_detection_topic" default="/detections"/>
+
+  <node name="pointpillar_ros" type="pointpillar_ros.py" pkg="pointpillar_ros" output="screen">
+    <param name="model_file_name" type="string" value="$(arg model_file_name)"/>
+    <param name="config_file_name" type="string" value="$(arg config_file_name)"/>
+    <param name="detection_score_threshold" type="double" value="$(arg detection_score_threshold)"/>
+    <param name="sub_point_cloud_topic" type="string" value="$(arg sub_point_cloud_topic)"/>
+    <param name="pub_detection_topic" type="string" value="$(arg pub_detection_topic)"/>
+  </node>
+</launch>
