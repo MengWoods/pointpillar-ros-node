@@ -34,6 +34,9 @@ To use this code, follow the steps below:
     ```
 5. Launch RViz, visualize the detection bounding boxes.
 
+This is a screenshot of detection result:\
+<img src='resource/bbox.png' width='400'>
+
 ## Troubleshooting
 
 If you encounter a `ModuleNotFoundError` related to the `netifaces` module, you can resolve it by installing the module using pip `pip install netifaces`.
