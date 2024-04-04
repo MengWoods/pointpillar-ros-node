@@ -8,14 +8,11 @@ Please note that the instructions provided assume a ROS Noetic environment. The 
 
 Before using this repository, please ensure that you have the following prerequisites installed:
 
-- CUDA 11.6 and MMDetection3D library [[installation instruction](https://mengwoods.github.io/post/tech/001-install-openmm3d-lib/en/)]
+- CUDA 11.6 and MMDetection3D library:
+    - You can follow the [[detailed installation instruction](https://mengwoods.github.io/post/tech/001-install-openmm3d-lib/en/)] to install both.
 - ROS Noetic
-- jsk-recognition-msgs, jsk-rviz-plugins
-
-You can install the required ROS packages using the following commands:
-```bash
-sudo apt-get install ros-noetic-jsk-recognition-msgs ros-noetic-jsk-rviz-plugins
-```
+- `jsk-recognition-msgs`, `jsk-rviz-plugins`:
+    - `sudo apt-get install ros-noetic-jsk-recognition-msgs ros-noetic-jsk-rviz-plugins`
 
 Additionally, you will need to download the required models weight and config files from [model zoo](https://github.com/open-mmlab/mmdetection3d/tree/main/configs/pointpillars) and place them in directory: [`pointpillar_ros/model/pointpillar/`](./pointpillar_ros/model/pointpillar/). Update model weight and confi files' names in [launchfile](./pointpillar_ros/launch/pointpillar_ros.launch).
 
@@ -35,6 +32,7 @@ To use this code, follow the steps below:
     source install/setup.bash # or source install/pointpillar_ros/setup.bash
     roslaunch pointpillar_ros pointpillar_ros.launch
     ```
+5. Launch RViz, visualize the detection bounding boxes.
 
 ## Troubleshooting
 
